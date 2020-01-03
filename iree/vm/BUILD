@@ -158,6 +158,7 @@ cc_library(
         ":module",
         ":ref",
         ":stack",
+        ":types",
         "//iree/base:api",
         "//iree/base:api_util",
         "//iree/base:ref_ptr",
