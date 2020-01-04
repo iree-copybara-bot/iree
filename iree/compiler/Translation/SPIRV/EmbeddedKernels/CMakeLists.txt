@@ -12,29 +12,21 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
+add_subdirectory(Kernels)
+
 iree_cc_library(
   NAME
-    VulkanSPIRV
+    EmbeddedKernels
   HDRS
-    "VulkanSPIRVTarget.h"
+    "EmbeddedKernels.h"
   SRCS
-    "VulkanSPIRVTarget.cpp"
+    "EmbeddedKernels.cpp"
   DEPS
-    iree::compiler::Dialect::Flow::IR
-    iree::compiler::Dialect::HAL::Target::ExecutableTarget
-    iree::compiler::Dialect::IREE::IR
-    iree::compiler::Translation::SPIRV::EmbeddedKernels
-    iree::compiler::Translation::SPIRV::XLAToSPIRV
-    iree::schemas::spirv_executable_def_cc_fbs
     flatbuffers
-    LLVMSupport
+    iree::compiler::Translation::SPIRV::EmbeddedKernels::Kernels
+    iree::schemas::spirv_executable_def_cc_fbs
     MLIRIR
-    MLIRPass
-    MLIRSPIRVDialect
-    MLIRSPIRVLowering
-    MLIRSPIRVSerialization
     MLIRSupport
-    MLIRTransforms
     tensorflow::mlir_xla
   ALWAYSLINK
   PUBLIC

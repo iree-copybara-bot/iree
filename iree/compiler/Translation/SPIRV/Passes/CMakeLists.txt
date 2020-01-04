@@ -14,28 +14,17 @@
 
 iree_cc_library(
   NAME
-    VulkanSPIRV
+    Passes
   HDRS
-    "VulkanSPIRVTarget.h"
+    "Passes.h"
   SRCS
-    "VulkanSPIRVTarget.cpp"
+    "AdjustIntegerWidthPass.cpp"
   DEPS
-    iree::compiler::Dialect::Flow::IR
-    iree::compiler::Dialect::HAL::Target::ExecutableTarget
-    iree::compiler::Dialect::IREE::IR
-    iree::compiler::Translation::SPIRV::EmbeddedKernels
-    iree::compiler::Translation::SPIRV::XLAToSPIRV
-    iree::schemas::spirv_executable_def_cc_fbs
-    flatbuffers
-    LLVMSupport
     MLIRIR
     MLIRPass
-    MLIRSPIRVDialect
-    MLIRSPIRVLowering
-    MLIRSPIRVSerialization
-    MLIRSupport
+    MLIRSPIRV
+    MLIRStandardOps
     MLIRTransforms
-    tensorflow::mlir_xla
   ALWAYSLINK
   PUBLIC
 )
