@@ -14,26 +14,19 @@
 
 iree_cc_library(
   NAME
-    VulkanSPIRV
+    ReductionCodegen
   HDRS
-    "VulkanSPIRVTarget.h"
+    "ReductionCodegenPasses.h"
   SRCS
-    "VulkanSPIRVTarget.cpp"
+    "PrepareReductionDispatch.cpp"
+    "ReductionFnLowering.cpp"
   DEPS
-    iree::compiler::Dialect::Flow::IR
-    iree::compiler::Dialect::HAL::Target::ExecutableTarget
     iree::compiler::Dialect::IREE::IR
-    iree::compiler::Translation::SPIRV::EmbeddedKernels
-    iree::compiler::Translation::SPIRV::XLAToSPIRV
-    iree::schemas::spirv_executable_def_cc_fbs
-    flatbuffers
-    LLVMSupport
+    iree::compiler::Utils
     MLIRIR
     MLIRPass
-    MLIRSPIRVDialect
-    MLIRSPIRVLowering
-    MLIRSPIRVSerialization
-    MLIRSupport
+    MLIRSPIRV
+    MLIRStandardOps
     MLIRTransforms
     tensorflow::mlir_xla
   ALWAYSLINK

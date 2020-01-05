@@ -18,30 +18,20 @@ package(
 )
 
 cc_library(
-    name = "VulkanSPIRV",
+    name = "Passes",
     srcs = [
-        "VulkanSPIRVTarget.cpp",
+        "AdjustIntegerWidthPass.cpp",
     ],
     hdrs = [
-        "VulkanSPIRVTarget.h",
+        "Passes.h",
     ],
     deps = [
-        "//iree/compiler/Dialect/Flow/IR",
-        "//iree/compiler/Dialect/HAL/Target:ExecutableTarget",
-        "//iree/compiler/Dialect/IREE/IR",
-        "//iree/compiler/Translation/SPIRV/EmbeddedKernels",
-        "//iree/compiler/Translation/SPIRV/XLAToSPIRV",
-        "//iree/schemas:spirv_executable_def_cc_fbs",
-        "@com_github_google_flatbuffers//:flatbuffers",
-        "@llvm-project//llvm:support",
         "@llvm-project//mlir:IR",
         "@llvm-project//mlir:Pass",
         "@llvm-project//mlir:SPIRVDialect",
         "@llvm-project//mlir:SPIRVLowering",
-        "@llvm-project//mlir:SPIRVSerialization",
-        "@llvm-project//mlir:Support",
+        "@llvm-project//mlir:StandardOps",
         "@llvm-project//mlir:Transforms",
-        "@org_tensorflow//tensorflow/compiler/mlir/xla:hlo",
     ],
     alwayslink = 1,
 )

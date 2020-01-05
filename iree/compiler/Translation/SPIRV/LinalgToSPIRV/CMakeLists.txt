@@ -14,28 +14,23 @@
 
 iree_cc_library(
   NAME
-    VulkanSPIRV
+    LinalgToSPIRV
   HDRS
-    "VulkanSPIRVTarget.h"
   SRCS
-    "VulkanSPIRVTarget.cpp"
+    "LinalgToSPIRV.cpp"
   DEPS
-    iree::compiler::Dialect::Flow::IR
-    iree::compiler::Dialect::HAL::Target::ExecutableTarget
-    iree::compiler::Dialect::IREE::IR
-    iree::compiler::Translation::SPIRV::EmbeddedKernels
-    iree::compiler::Translation::SPIRV::XLAToSPIRV
-    iree::schemas::spirv_executable_def_cc_fbs
-    flatbuffers
     LLVMSupport
+    MLIRAffineOps
+    MLIRAffineToStandard
+    MLIRGPUtoSPIRVTransforms
+    MLIRGPU
     MLIRIR
+    MLIRLinalg
+    MLIRLoopsToGPU
     MLIRPass
-    MLIRSPIRVDialect
-    MLIRSPIRVLowering
-    MLIRSPIRVSerialization
+    MLIRSPIRV
+    MLIRStandardOps
+    MLIRStandardToSPIRVTransforms
     MLIRSupport
     MLIRTransforms
-    tensorflow::mlir_xla
-  ALWAYSLINK
-  PUBLIC
 )

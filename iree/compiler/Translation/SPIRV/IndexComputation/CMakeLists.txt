@@ -14,28 +14,28 @@
 
 iree_cc_library(
   NAME
-    VulkanSPIRV
+    IndexComputation
   HDRS
-    "VulkanSPIRVTarget.h"
+    "IREEIndexComputation.h"
+    "IndexComputation.h"
+    "IndexComputationAttribute.h"
+    "IndexComputationPass.h"
+    "XLAIndexPropagation.h"
   SRCS
-    "VulkanSPIRVTarget.cpp"
+    "IREEIndexComputation.cpp"
+    "IndexComputation.cpp"
+    "IndexComputationAttribute.cpp"
+    "IndexComputationPass.cpp"
+    "XLAIndexPropagation.cpp"
   DEPS
-    iree::compiler::Dialect::Flow::IR
-    iree::compiler::Dialect::HAL::Target::ExecutableTarget
     iree::compiler::Dialect::IREE::IR
-    iree::compiler::Translation::SPIRV::EmbeddedKernels
-    iree::compiler::Translation::SPIRV::XLAToSPIRV
-    iree::schemas::spirv_executable_def_cc_fbs
-    flatbuffers
+    iree::compiler::Utils
     LLVMSupport
     MLIRIR
     MLIRPass
-    MLIRSPIRVDialect
-    MLIRSPIRVLowering
-    MLIRSPIRVSerialization
-    MLIRSupport
-    MLIRTransforms
-    tensorflow::mlir_xla
+    MLIRSPIRV
+    MLIRStandardOps
+   tensorflow::mlir_xla
   ALWAYSLINK
   PUBLIC
 )
