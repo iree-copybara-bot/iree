@@ -17,8 +17,6 @@ and reach out on the
 -   [Dependencies](#dependencies)
 -   [License](#license)
 
-A test change
-
 ## Contact
 
 For bugs and issues, prefer filing a GitHub issue. For other topics, feel free
